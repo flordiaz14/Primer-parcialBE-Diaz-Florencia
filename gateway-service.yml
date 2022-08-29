@@ -1,0 +1,15 @@
+server:
+  port: 8086
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: catalogRoute
+          uri: http://localhost:8085/
+          predicates:
+            - Path=/catalog/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
